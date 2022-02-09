@@ -1,1 +1,5 @@
 hello world!
+<<<<<<< HEAD
+=======
+page2
+>>>>>>> 8091318dd47e5a8e963667379b75763f9eeaa11e
