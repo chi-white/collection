@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[100]:
-
 
 import numpy as np
 import math
@@ -83,8 +78,6 @@ for i in range(500) :
 plt.plot(T, predict)
 MAE(data, predict)
 
-
-# In[ ]:
 
 
 
