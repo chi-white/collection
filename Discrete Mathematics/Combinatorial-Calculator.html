@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html> 
+<html>  
+    <head> 
+        <title> 
+            Combinatorial Calculator
+        </title>
+      
+      <style> 
+        body {
+            font-family: Times;
+        }
+
+        table  { 
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th, td{ 
+            padding: 5px;
+            border: 1px solid #dddddd;
+        }
+
+        input[type="number"]{ 
+            width: 60px;
+            }
+        </style>
+    </head>
+
+    <body background="https://www.farglory-oceanpark.com.tw/static/styles/images/static/explore/pattern01.png"> 
+        <H1 align="center" >Combinatorial Calculator</H1> 
+        <H3 align="right">資財12白樂祺</H3>
+        <table align="center">  
+            <tr bgcolor="orange"> 
+                <!-- 背景綠 -->
+                <th>Formula</th>
+                <!-- <th>欄位標題 <tr>橫列 <td>直行-->
+                <th>
+                    <label><i>n</i> = </label>
+                    <input type="number" id="n" value="7" min="0">
+                    <label><i>r</i> = </label>
+                    <input type="number" id="r" value="3" min="0">
+                </th>
+                <th>
+                    <button type="button" onclick="computeAll()">Compute All</button>
+                </th> 
+                <th>Order relevant</th>
+                <th>Repetition</th>    
+                <th>Memo</th>        
+            </tr>
+            <tr>
+                <td>
+                    <label><i>P</i>(<i>n</i>, <i>r</i>)</label>
+                </td>
+                <td>
+                    <span id="resPermutation"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clickPerm()">Permutation</button>
+                </td>
+                <td>
+                    yes
+                </td>
+                <td>
+                    no
+                </td>
+                <td align="left">
+                    # Permutations of size <i>r</i> from <i>n</i> distinct objects
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><i>C</i>(<i>n</i>, <i>r</i>)</label>
+                </td>
+                <td>
+                    <span id="resCombination"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clickComb()">Combination</button>
+                </td>
+                <td>no</td>
+                <td>no</td>
+                <td align="left">
+                    # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <label><i>n<sup>r</sup></i></label>
+                </td>
+                <td>
+                    <span id="resArrangement"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clickArra()">Arrangement with repetition</button>
+                </td>
+                <td>yes</td>
+                <td>yes</td>
+                <td align="left">
+                    # Arrangements with repetition of size <i>r</i> from <i>n</i> distinct objects
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><i>C</i>(<i>r</i>+<i>n</i>-1, <i>r</i>)</label>
+                </td>
+                <td>
+                    <span id="resSelectrofn"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clickSele()">Selection with repetition</button>
+                </td>
+                <td>no</td>
+                <td>yes</td>
+                <td align="left">
+                    # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <table align="center">
+            <tr bgcolor="orange" >
+                <th>number list</th> 
+                <th>
+                    <label><i>n</i> = </label>
+                    <input type="number" id="n2" value="7" min="0">
+                </th>
+                <th>
+                    <button type="button" onclick="computeAllnumber()">compute All number</button>
+                </th> 
+            </tr>
+            <tr>
+                <td>
+                    <label><i>Catalan</i></label>
+                </td>
+                <td>
+                    <span id="Catalan"></span>    
+                </td>
+                <td>
+                    <button type="button" onclick="clickCatalan()">Catalan</button>
+                </td>
+            </tr>   
+            <tr>
+                <td>
+                    <label><i>triangular</i></label>
+                </td>
+                <td>
+                    <span id="triangular"></span>    
+                </td>
+                <td>
+                    <button type="button" onclick="clicktriangular()">triangular</button>
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <label><i>harmonic</i></label>
+                </td>
+                <td>
+                    <span type="text" id="harmonic"></span>    
+                </td>
+                <td>
+                    <button type="button" onclick="clickharmonic()">harmonic</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><i>Fibonacci</i></label>
+                </td>
+                <td>
+                    <span id="Fibonacci"></span>    
+                </td>
+                <td>
+                    <button type="button" onclick="clickFibonacci()">Fibonacci</button>
+                </td>              
+            </tr>
+            <tr>
+                <td>
+                    <label><i>Lucas</i></label>
+                </td>
+                <td>
+                    <span id="Lucas"></span>    
+                </td>
+                <td>
+                    <button type="button" onclick="clickLucas()">Lucas</button>
+                </td>              
+            </tr>
+        </table>
+        <br><br>
+
+        <table align="center">
+            <tr bgcolor="orange">
+                <th>
+                    Eulerian numbers
+                </th>
+                <th>
+                    <label><i>m</i> = </label>
+                    <input type="number" id="m3" value="7" min="0">
+                </th>
+                <td>
+                    <button type="button" onclick="clickEuleriannumberslist()">compute Eulerian number list</button>
+                </td>
+                <td bgcolor="white">
+                    <span id="Euleriannumberslist">
+                        m = m,n = 0 to m-1
+                    </span>
+                </td>
+            </tr>
+        </table>
+
+        <br><br>
+        <table align="center">
+            <tr bgcolor="orange">
+                <th>
+                    Stiring number of second kind
+                </th>
+                <th>
+                    <label><i>m</i> = </label>
+                    <input type="number" id="m2" value="7" min="0">
+                </th>
+                <td>
+                    <button type="button" onclick="clickStiringsecondlist()">compute Stiring number list</button>
+                </td>
+                <td bgcolor="white">
+                    <span id="Stiringsecondlist">
+                        m = m,n = 1 to m
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <table align="center">
+            <tr bgcolor="orange">
+                <th>
+                    Distinct Objects(<i>m</i>)
+                </th>
+                <th>
+                    Distinct Containers(<i>n</i>)
+                </th>
+                <th>
+                    Some Empty Containers
+                </th>
+                <th>
+                    Number of Distributions
+                </th>
+                <th>
+                    Interpretations
+                </th>
+                <th>
+                    <label><i>m</i> = </label>
+                    <input type="number" id="m" value="7" min="0">
+                    <label><i>n</i> = </label>
+                    <input type="number" id="n3" value="7" min="0">
+                </th>
+                <td>
+                    <button type="button" onclick="computAlldistribution()">compute all distributions</button>
+                </td>
+            </tr>
+            <tr>
+                <td>yes</td>
+                <td>yes</td>
+                <td>yes</td>
+                <td><i>n</i><sup><i>m</i></sup></td>
+                <td align="left">
+                    Each of the <i>m</i> distinct object may be distributed into any of the <i>n</i> distinct containers
+                </td>
+                <td>
+                    <span id="npowerm"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clicknpowerm()"><i>n</i> to power of <i>m</i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>yes</td>
+                <td>yes</td>
+                <td>no</td>
+                <td><i>onto</i>(<i>m</i>,<i>n</i>)</td>
+                <td align="left">
+                    Each of the <i>m</i> distinct object may be distributed onto any of
+                    the <i>n</i> distinct containers with no containers empty
+                </td>
+                <td>
+                    <span id = "ontofunction"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clickontofunction()">ontofunction</button>
+                </td>
+            </tr>
+            <tr>
+                <td>yes</td>
+                <td>no</td>
+                <td>yes</td>
+                <td><i>S</i>(<i>m</i>,1)+<i>S</i>(<i>m</i>,2)+...<i>S</i>(<i>m</i>,<i>n</i>)</td>
+                <td align="left">
+                    <i>m</i> distinct objects onto 1. 2...<i>n</i> identical containers,
+                    leaving no container empty S(<i>m</i>, 1)+S(<i>m</i>, 2) + ... + S(<i>m</i>,<i>n</i>)
+                </td>
+                <td>
+                    <span id="sumofStiring"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clicksumofStiring()">sum of Stiring</button>
+                </td>
+            </tr>
+            <tr>
+                <td>yes</td>
+                <td>no</td>
+                <td>no</td>
+                <td><i>S</i>(<i>m</i>,<i>n</i>)</td>
+                <td align="left">
+                    <i>m</i> distinct objects onto <i>n</i> identical containers, leaving no
+                    container empty
+                </td>
+                <td>
+                    <span id="Stiringsecond"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clickStiringsecond()">Stiring number of second kind</button>
+                </td>
+            </tr>
+            <tr>
+                <td>no</td>
+                <td>yes</td>
+                <td>yes</td>
+                <td><i>C</i>(<i>m</i>+<i>n</i>-1,<i>m</i>)</td>
+                <td align="left">
+                    Ordering food from the view of kitchen (<i>m</i> kids (identical),
+                     <i>n</i> foods (distinct)); <i>m</i> identical pennies into <i>n</i> distinct
+                     container;nonnegative integer solutions for an equation
+                </td>
+                <td>
+                    <span id = "Selections"></span>
+                </td>
+                <td>
+                    <button type="button" onclick="clickSelections()">Selections with repetition</button>
+                </td>
+            </tr>
+            <tr>
+                <td>no</td>
+                <td>yes</td>
+                <td>yes</td>
+                <td><i>C</i>(<i>m</i>-1,<i>n</i>-1)</td>
+                <td align="left">
+                    Deliver one object to each of the <i>n</i> distinct containers first,
+                    then distribute <i>m</i>-<i>n</i> objects to the <i>n</i> containers
+                </td>
+                <td>
+                    <span id = "function6"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clickfunction6()">remaining Combination</button
+                </td>
+            </tr>
+            <tr>
+                <td>no</td>
+                <td>no</td>
+                <td>yes</td>
+                <td>
+                    <i>P</i>(<i>m</i>,<i>1</i>)+<i>P</i>(<i>m</i>,<i>2</i>)+...+<i>P</i>(<i>m</i>,<i>n</i>)
+                </td>
+                <td align="left">
+                    Partition integer <i>m</i> into at most <i>n</i> summands (with some 0
+                     sununands, corresponding to empty containers)
+                </td>
+                <td>
+                    <span id="paritionswithempty"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clickparitionswithempty()">partitions with empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>no</td>
+                <td>no</td>
+                <td>no</td>
+                <td><i>P</i>(<i>m</i>,<i>n</i>)</td>
+                <td align="left">
+                    Partition integer <i>m</i> into exactly <i>n</i> summands (with no
+                     container empty)
+                </td>
+                <td>
+                    <span id="partitions"></span>
+                    <br>
+                    <label>(<i>m</i>>=<i>n</i>)</label>
+                </td>
+                <td>
+                    <button type="button" onclick="clickpartitions()">partitions</button>
+
+                </td>
+            </tr>
+        </table>
+        <script>
+        
+            function Factorial(n)
+            {   fact = 1;
+                for (i=2; i<=n; i++)
+                fact *= i;
+                return fact;
+            }
+
+            function Perm(n, r)
+            {   perm = Factorial(n)/Factorial(n-r);
+                return perm;
+            }
+
+            function Comb(n, r)
+            { return Perm(n, r) / Factorial(r);
+            } 
+
+            function Fibonacci_count(n)
+            {   
+                if(n==0) return 0;
+                if(n==1) return 1;
+                return Fibonacci_count(n-1)+Fibonacci_count(n-2);
+            }
+
+            function Fibonacci(n)
+            {   var sum = " ";
+                for(var i=0;i<=n;i++) 
+                {   var a = Fibonacci_count(i);
+                    sum += a.toString()+" ";
+                }
+                return sum;
+            }
+
+            function Lucas_count(n)
+            {   if(n==0) return 2;
+                if(n==1) return 1;
+                return Lucas_count(n-1)+Lucas_count(n-2);
+            }
+
+            function Lucas(n)
+            {   var sum = " ";
+                for(var i=0;i<=n;i++) 
+                {   var a = Lucas_count(i);
+                    sum += a.toString()+" ";
+                }
+                return sum;
+            }
+
+            function Catalan(n)
+            {   var sum = "0 ";
+                for (var i=1 ; i<=n ; i++)
+                {   var a = Comb(2*i, i) / (parseInt(i)+1);//字串轉換數字
+                    sum += a.toString()+" ";
+                }
+                return sum;
+            }
+
+            function triangular(n)
+            {   var sum = "0 ";
+                var a = (parseInt(n)+1)*n/2;            
+                for(i=1;i<=n;i++) 
+                {   var a = (parseInt(i)+1)*i/2;
+                    sum += a.toString()+" ";
+                }
+                return sum;
+            }
+
+            function harmonic(n)
+            {   if(n==0) return;
+                var sum = "";
+                for(i=1;i<=n;i++) sum += "1/"+i+" ";
+                return sum;
+            }
+
+            function ontofunction(m,n)
+            {
+                var sum = 0;
+                for(var k=0;k<=n;k++) sum += ((-1)**k)*(Comb(n, n-k)*(n-k)**m);
+                return sum;
+            }
+
+            function Stiringsecond(m,n)
+            {
+                var sum = 0;
+                sum = ontofunction(m,n) / Factorial(n);
+                return sum;
+            }
+
+            function npowerm(n,m)
+            {
+                return n**m;
+            }
+
+            function sumofStiring(n,m)
+            {
+                sum = 0;
+                for(var i=1;i<=n;i++) sum += Stiringsecond(m,i);
+                return sum;
+            }
+
+            function Stiringsecondlist(m)
+            {
+                var sum = "(m="+m.toString()+",n from 1 to "+m.toString()+") ";
+                for(var i=1;i<=m;i++) 
+                {
+                    var a = Stiringsecond(m,i);
+                    sum += a.toString()+" ";
+                }
+                return sum;
+            }
+
+            function Euleriannumbers(m,n)
+            {
+                var sum = 0;
+                for(var k=0;k<=n+1;k++) sum += (-1)**k*Comb(m+1,k)*(n+1-k)**m;
+                return sum;
+            }
+
+            function Euleriannumberslist(m)
+            {
+                var sum = "(m="+m.toString()+",n from 0 to "+(m-1).toString()+") ";
+                for(var n=0;n<=m-1;n++)
+                { 
+                    a = Euleriannumbers(m,n);
+                    sum += a.toString()+" ";
+                }    
+                return sum;
+            }
+
+            function paritionswithempty(m,n)
+            {
+                part = [m+1];
+                part[0] = 1;
+                for(var i=1;i<=m;i++) part.push(0);
+                for(var t=1;t<=n;t++)
+                {
+                    var i = 0;
+                    for(var x=t;x<=m;x++) 
+                    {
+                        part[x] += part[i];
+                        i++;
+                    }
+                }
+                return part[m];
+            }
+
+            function partitions(m,n)
+            {
+                return paritionswithempty(m,n)-paritionswithempty(m,n-1);
+            }
+
+
+            function invalid(n, r)
+            {   if (parseInt(n) < 0 || isNaN(parseInt(n)))
+                {   document.getElementById("n").focus();
+                    return true;
+                }
+                else if (parseInt(r) < 0 || isNaN(parseInt(r)))
+                {   document.getElementById("r").focus();
+                    return true;
+                }
+                return false;
+            }
+
+            function computeAll()
+            {   document.getElementById("resPermutation").innerHTML = "";
+                document.getElementById("resCombination").innerHTML = "";
+                document.getElementById("resArrangement").innerHTML = "";
+                document.getElementById("resSelectrofn").innerHTML = "";  
+                clickPerm();
+                clickComb();
+                clickArra();
+                clickSele();
+            }
+
+            function computeAllnumber()
+            {   document.getElementById("Catalan").innerHTML = "";
+                document.getElementById("triangular").innerHTML = "";
+                document.getElementById("harmonic").innerHTML = "";
+                document.getElementById("Fibonacci").innerHTML = "";
+                document.getElementById("Lucas").innerHTML = "";
+                clickCatalan();
+                clicktriangular();
+                clickharmonic();
+                clickFibonacci();
+                clickLucas();
+            }
+
+            function computAlldistribution()
+            {   document.getElementById("ontofunction").innerHTML = "";
+                document.getElementById("Stiringsecond").innerHTML = "";
+                clickontofunction();
+                clickStiringsecond();
+                clickfunction6();
+                clicknpowerm();
+                clicksumofStiring();
+                clickSelections();
+                clickparitionswithempty();
+                clickpartitions();
+            }
+
+            function clickPerm()
+            {   document.getElementById("resPermutation").innerHTML = "";
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;
+                if (n<r) return;
+                document.getElementById("resPermutation").innerHTML = Perm(n, r);
+            }
+    
+            function clickComb()
+            {   document.getElementById("resCombination").innerHTML = "";
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;          
+                if (n<r) return;    
+                document.getElementById("resCombination").innerHTML = Comb(n, r);
+            }
+
+            function clickArra()
+            {   document.getElementById("resArrangement").innerHTML = ""
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;
+                if (invalid(n, r)) return;    
+                document.getElementById("resArrangement").innerHTML = Math.pow(n, r);
+            }
+            
+            function clickSele()
+            {   document.getElementById("resSelectrofn").innerHTML = "";
+                n = parseInt(document.getElementById("n").value);
+                r = parseInt(document.getElementById("r").value);
+                if (invalid(n, r)) return;
+                document.getElementById("resSelectrofn").innerHTML = Comb(n + r - 1, r);
+            }
+
+            function clickFibonacci()
+            {   document.getElementById("Fibonacci").innerHTML = "";
+                n = document.getElementById("n2").value;
+                document.getElementById("Fibonacci").innerHTML = Fibonacci(n);
+            }
+
+            function clickLucas()
+            {   document.getElementById("Lucas").innerHTML = "";
+                n = document.getElementById("n2").value;
+                document.getElementById("Lucas").innerHTML = Lucas(n);
+            }
+
+            function clickCatalan()
+            {   document.getElementById("Catalan").innerHTML = "";
+                n = document.getElementById("n2").value;
+                document.getElementById("Catalan").innerHTML = Catalan(n);
+            }
+            
+            function clicktriangular()
+            {   document.getElementById("triangular").innerHTML = "";
+                n = document.getElementById("n2").value;
+                document.getElementById("triangular").innerHTML = triangular(n);
+            }
+            
+            function clickharmonic()
+            {   i = 0;
+                string = "";
+                document.getElementById("harmonic").innerHTML = "";
+                n = document.getElementById("n2").value;
+                document.getElementById("harmonic").innerHTML = harmonic(n);
+            }
+
+            function clickontofunction()
+            {
+                document.getElementById("ontofunction").innerHTML = "";
+                var m = document.getElementById("m").value;
+                var n = document.getElementById("n3").value;
+                if(m<n) return;
+                else document.getElementById("ontofunction").innerHTML = ontofunction(m,n);
+            }
+
+            function clickStiringsecond()
+            {
+                document.getElementById("Stiringsecond").innerHTML = "";
+                var m = document.getElementById("m").value;
+                var n = document.getElementById("n3").value;
+                if(m<n) return;
+                else document.getElementById("Stiringsecond").innerHTML = Stiringsecond(m,n);
+            }
+
+            function clicknpowerm()
+            {
+                document.getElementById("npowerm").innerHTML = "";
+                var m = document.getElementById("m").value;
+                var n = document.getElementById("n3").value;
+                document.getElementById("npowerm").innerHTML = npowerm(n,m);
+            }
+
+            function clicksumofStiring()
+            {
+                document.getElementById("sumofStiring").innerHTML = "";
+                var m = document.getElementById("m").value;
+                var n = document.getElementById("n3").value;
+                if(m<n) return;
+                document.getElementById("sumofStiring").innerHTML = sumofStiring(m,n);   
+            }
+
+            function clickSelections()
+            {
+                document.getElementById("Selections").innerHTML = "";
+                n = parseInt(document.getElementById("n3").value);
+                m = parseInt(document.getElementById("m").value);
+                document.getElementById("Selections").innerHTML = Comb(n + m - 1, m);
+            }
+
+            function clickStiringsecondlist()
+            {
+                document.getElementById("Stiringsecondlist").innerHTML = "";
+                m = parseInt(document.getElementById("m2").value);
+                document.getElementById("Stiringsecondlist").innerHTML = Stiringsecondlist(m);
+            }
+
+            function clickEuleriannumberslist()
+            {
+                document.getElementById("Euleriannumberslist").innerHTML = "";
+                m = parseInt(document.getElementById("m3").value);
+                document.getElementById("Euleriannumberslist").innerHTML = Euleriannumberslist(m);
+            }
+
+            function clickfunction6()
+            {
+                document.getElementById("function6").innerHTML = "";
+                n = parseInt(document.getElementById("n3").value);
+                m = parseInt(document.getElementById("m").value);
+                if(m<n) return;
+                document.getElementById("function6").innerHTML = Comb(m-1, n-1);
+            }
+
+            function clickpartitions()
+            {
+                document.getElementById("partitions").innerHTML = "";
+                n = parseInt(document.getElementById("n3").value);
+                m = parseInt(document.getElementById("m").value);
+                if(m<n) return;
+                document.getElementById("partitions").innerHTML = partitions(m,n);
+            }
+
+            function clickpartitions()
+            {
+                document.getElementById("partitions").innerHTML = "";
+                n = parseInt(document.getElementById("n3").value);
+                m = parseInt(document.getElementById("m").value);
+                if(m<n) return;
+                document.getElementById("partitions").innerHTML = partitions(m,n);
+            }
+
+            function clickparitionswithempty()
+            {
+                document.getElementById("paritionswithempty").innerHTML = "";
+                n = parseInt(document.getElementById("n3").value);
+                m = parseInt(document.getElementById("m").value);
+                if(m<n) return;
+                document.getElementById("paritionswithempty").innerHTML = paritionswithempty(m,n);
+            }
+        </script>
+    </body>
+</html>
