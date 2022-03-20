@@ -1,0 +1,180 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Magic Square by '#30333#27138#31098' 2020/10/15'
+  ClientHeight = 481
+  ClientWidth = 691
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 185
+    Height = 481
+    Align = alLeft
+    TabOrder = 0
+    ExplicitLeft = -2
+    object Label1: TLabel
+      Left = 32
+      Top = 129
+      Width = 33
+      Height = 19
+      Caption = 'N = '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 46
+      Top = 176
+      Width = 86
+      Height = 19
+      Caption = '3<=N<=23'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Edit1: TEdit
+      Left = 71
+      Top = 127
+      Width = 81
+      Height = 27
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = '@Adobe '#20223#23435' Std R'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = '3'
+    end
+    object Button1: TButton
+      Left = 32
+      Top = 220
+      Width = 121
+      Height = 41
+      Caption = 'magic square'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = '@Adobe '#20223#23435' Std R'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+    object RadioButton1: TRadioButton
+      Left = 0
+      Top = 328
+      Width = 81
+      Height = 17
+      Caption = 'RadioButton1'
+      TabOrder = 2
+    end
+    object RadioButton2: TRadioButton
+      Left = 87
+      Top = 328
+      Width = 113
+      Height = 17
+      Caption = 'RadioButton2'
+      TabOrder = 3
+    end
+    object RadioButton3: TRadioButton
+      Left = 0
+      Top = 367
+      Width = 81
+      Height = 17
+      Caption = 'RadioButton3'
+      TabOrder = 4
+    end
+    object RadioButton4: TRadioButton
+      Left = 87
+      Top = 367
+      Width = 113
+      Height = 17
+      Caption = 'RadioButton4'
+      TabOrder = 5
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 185
+    Top = 0
+    Width = 506
+    Height = 481
+    ActivePage = TabSheet4
+    Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = '@Adobe '#20223#23435' Std R'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Up-Left'
+      object StringGrid1: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = '@Adobe '#20223#23435' Std R'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Up-Right'
+      ImageIndex = 1
+      object StringGrid2: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Botton-Left'
+      ImageIndex = 2
+      object StringGrid3: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Botton-Right'
+      ImageIndex = 3
+      object StringGrid4: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+end

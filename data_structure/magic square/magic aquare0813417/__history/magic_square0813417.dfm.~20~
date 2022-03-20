@@ -1,0 +1,117 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Magic Square by '#30333#27138#31098' 2020/10/15'
+  ClientHeight = 481
+  ClientWidth = 691
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 185
+    Height = 481
+    Align = alLeft
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 32
+      Top = 128
+      Width = 21
+      Height = 13
+      Caption = 'N = '
+    end
+    object Label2: TLabel
+      Left = 59
+      Top = 168
+      Width = 57
+      Height = 13
+      Caption = '3<=N<=23'
+    end
+    object Edit1: TEdit
+      Left = 59
+      Top = 125
+      Width = 81
+      Height = 21
+      TabOrder = 0
+      Text = '3'
+    end
+    object Button1: TButton
+      Left = 32
+      Top = 208
+      Width = 121
+      Height = 41
+      Caption = 'magic square'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 185
+    Top = 0
+    Width = 506
+    Height = 481
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Up-Left'
+      object StringGrid1: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Showcard Gothic'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Up-Right'
+      ImageIndex = 1
+      object StringGrid2: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Botton-Left'
+      ImageIndex = 2
+      object StringGrid3: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Botton-Right'
+      ImageIndex = 3
+      object StringGrid4: TStringGrid
+        Left = 0
+        Top = 0
+        Width = 498
+        Height = 453
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+end

@@ -1,0 +1,175 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Polynomial0813417.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm2 *Form2;
+struct term;
+term* Newheader(int coef,int expo);
+term *a_first,*a_last,*b_first,*b_last,*c_first,*c_last;
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+	a_first = Newheader(0,-1);
+	b_first = Newheader(0,-1);
+	c_first = Newheader(0,-1);
+	a_last = a_first;
+	b_last = b_first;
+	c_last = c_first;
+}
+
+struct term
+{
+	int coef;
+	int expo;
+	term* next;
+};
+
+term* Newheader(int coef,int expo)
+{
+	term* r = new term;
+	r->coef = coef;
+	r->expo = expo;
+	r->next = r;
+	return r;
+}
+
+term* Newterm(term* x)
+{
+	term* r = new term;
+	r->coef = x->coef;
+	r->expo = x->expo;
+	return r;
+}
+
+void C()
+{
+	term *p,*q;
+	p = a_first->next;
+	q = b_first->next;
+	while(p!=a_first||q!=b_first)
+	{
+		term* r;
+		if(p->expo > q->expo)
+		{
+			r = Newterm(p);
+			p = p->next;
+		}
+		else if(p->expo < q->expo)
+		{
+			r = Newterm(q);
+			q = q->next;
+		}
+		else//expo相等
+		{
+			r = Newterm(p);
+			r->coef += q->coef;
+			p = p->next;
+			q = q->next;
+			if(r->coef == 0) continue;
+		}
+		c_last->next = r;
+		c_last = r;
+	}
+	c_last->next = c_first;
+}
+
+String print(term* first)
+{
+	String out;
+	term* r;
+	r = first->next;
+	while(r!=first)
+	{
+		if(r->coef>0)
+			out += "+ "+IntToStr(r->coef)+"X^"+IntToStr(r->expo)+" ";
+		else//coef<0
+			out += IntToStr(r->coef)+"X^"+IntToStr(r->expo)+" ";
+		r = r->next;
+	}
+	return out;
+}
+
+void clear(term* first)
+{
+	term* x;
+	while(first->next!=first)
+	{
+		x = first->next;
+		first->next = x->next;
+		free(x);
+    }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::Button4Click(TObject *Sender)//C = A+B
+{
+	String outa = "",outb = "",outc="";
+	C();
+	outa = print(a_first);
+	outa = "A : "+outa;
+	outb = print(b_first);
+	outb = "B : "+outb;
+	outc = print(c_first);
+	outc = "C : "+outc;
+	Form2->Memo2->Lines->Add(outa);
+	Form2->Memo2->Lines->Add(outb);
+	Form2->Memo2->Lines->Add(outc);
+	Form2->Memo2->Lines->Add("===============================");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::Button5Click(TObject *Sender)//clear
+{
+	clear(a_first);
+	clear(b_first);
+	clear(c_first);
+	a_last = a_first;
+	b_last = b_first;
+	c_last = c_first;
+    ShowMessage("Clear All Polynomial!");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::Button2Click(TObject *Sender)//Add to A 升降密要自己注意
+{
+	String out = "";
+	int coef = StrToInt(Edit2->Text);
+	int expo = StrToInt(Edit1->Text);
+	term* r;
+    r = NewHeader(coef,expo);
+	a_last->next = r;
+	a_last = r;
+	a_last->next = a_first;
+	out = print(a_first);
+	out = "A : "+out;
+	Form2->Memo1->Lines->Add(out);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::Button1Click(TObject *Sender)
+{
+	String out = "";
+	int coef = StrToInt(Edit2->Text);
+	int expo = StrToInt(Edit1->Text);
+	term* r = new term;
+	r->coef = coef;
+	r->expo = expo;
+	b_last->next = r;
+	b_last = r;
+	b_last->next = b_first;
+	out = print(b_first);
+	out = "B : "+out;
+	Form2->Memo1->Lines->Add(out);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::Button3Click(TObject *Sender)//random generate
+{
+	int maxexpo = StrToInt(Edit3->Text);
+	int coef_range = StrToInt(Edit4->Text);
+	int non0 = StrToInt(Edit5->Text);
+
+
+}
+//---------------------------------------------------------------------------

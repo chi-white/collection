@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/09/22 20:09:25.000.621,=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Project2PCH1.h</Transaction>
+    <Transaction>2020/09/22 20:09:26.000.098,=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>2020/10/11 23:54:38.000.449,=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>2020/10/11 23:54:38.000.280,=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Project2PCH1.h</Transaction>
+    <Transaction>2020/10/12 00:00:16.000.483,C:\Users\USER\Desktop\資料結構\magic aquare0813417\magic_square0813417.cpp=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>2020/10/12 00:00:16.000.483,C:\Users\USER\Desktop\資料結構\magic aquare0813417\magic_square0813417.h=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Unit2.h</Transaction>
+    <Transaction>2020/10/12 00:00:16.000.483,C:\Users\USER\Desktop\資料結構\magic aquare0813417\magic_square0813417.dfm=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2020/10/12 00:00:58.000.500,C:\Users\USER\Desktop\資料結構\magic aquare0813417\Project_magic_square0813417PCH1.h=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Project2PCH1.h</Transaction>
+    <Transaction>2020/10/12 00:01:23.000.957,C:\Users\USER\Desktop\資料結構\magic aquare0813417\Project_magic_square0813417.cbproj=C:\Users\USER\Documents\Embarcadero\Studio\Projects\Project2.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

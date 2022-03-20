@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{98243000-20A4-45C0-8817-4024E02F20F4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Project_hanoi0813417.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\selectionsort0813417\Project_selectionnsort0813147.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Project_hanoi0813417">
+        <MSBuild Projects="Project_hanoi0813417.cbproj"/>
+    </Target>
+    <Target Name="Project_hanoi0813417:Clean">
+        <MSBuild Projects="Project_hanoi0813417.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_hanoi0813417:Make">
+        <MSBuild Projects="Project_hanoi0813417.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project_selectionnsort0813147">
+        <MSBuild Projects="..\selectionsort0813417\Project_selectionnsort0813147.cbproj"/>
+    </Target>
+    <Target Name="Project_selectionnsort0813147:Clean">
+        <MSBuild Projects="..\selectionsort0813417\Project_selectionnsort0813147.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_selectionnsort0813147:Make">
+        <MSBuild Projects="..\selectionsort0813417\Project_selectionnsort0813147.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Project_hanoi0813417;Project_selectionnsort0813147"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Project_hanoi0813417:Clean;Project_selectionnsort0813147:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Project_hanoi0813417:Make;Project_selectionnsort0813147:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
