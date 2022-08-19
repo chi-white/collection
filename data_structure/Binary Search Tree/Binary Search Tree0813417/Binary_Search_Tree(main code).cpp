@@ -16,7 +16,7 @@ struct BTN
 	BTN* parent;
 	int data;
 };
-BTN* empty;//¦broot¤§¤WªºªÅ¥Õ¸`ÂI
+BTN* empty;//åœ¨rootä¹‹ä¸Šçš„ç©ºç™½ç¯€é»
 BTN* root;
 String out;
 struct Qnode
@@ -29,11 +29,11 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
 {
 	empty = new BTN;
-	empty->parent = NULL;//­n·í§@¦V¤U«ü¦Vrootªº«ü¼Ğ
+	empty->parent = NULL;//è¦ç•¶ä½œå‘ä¸‹æŒ‡å‘rootçš„æŒ‡æ¨™
 	empty->leftchild = NULL;
 	empty->rightchild = NULL;
 }
-void preorder(BTN* node)//«e§Çªk
+void preorder(BTN* node)//å‰åºæ³•
 {
 	if(node!=NULL)
 	{
@@ -43,7 +43,7 @@ void preorder(BTN* node)//«e§Çªk
 	}
 }
 
-void inorder(BTN* node)//¤¤§Çªk
+void inorder(BTN* node)//ä¸­åºæ³•
 {
 	if(node!=NULL)
 	{
@@ -53,7 +53,7 @@ void inorder(BTN* node)//¤¤§Çªk
 	}
 }
 
-void postorder(BTN* node)//«á§Çªk
+void postorder(BTN* node)//å¾Œåºæ³•
 {
 	if(node!=NULL)
 	{
@@ -63,7 +63,7 @@ void postorder(BTN* node)//«á§Çªk
 	}
 }
 
-void del(BTN* node)//§R°£©Ò¦³¸`ÂI
+void del(BTN* node)//åˆªé™¤æ‰€æœ‰ç¯€é»
 {
 	if(node!=NULL)
 	{
@@ -80,7 +80,7 @@ void insert(int element)
 	add->parent = NULL;
 	add->rightchild = NULL;
 	add->leftchild = NULL;
-	if(empty->parent==NULL)//°²­Éparentªí¥Üson
+	if(empty->parent==NULL)//å‡å€Ÿparentè¡¨ç¤ºson
 	{
 		root = add;
 		root->data = element;
@@ -92,7 +92,7 @@ void insert(int element)
 		BTN* p = root;
 		while(true)
 		{
-			if(add->data < p->data)//­Y²{¦³¸`ÂI¤§data¤ñ¸û¤j
+			if(add->data < p->data)//è‹¥ç¾æœ‰ç¯€é»ä¹‹dataæ¯”è¼ƒå¤§
 			{
 				if(p->leftchild==NULL)
 				{
@@ -137,14 +137,14 @@ BTN* DeleteBSTree(BTN* node,int x)
 	{	if(node->leftchild==NULL||node->rightchild==NULL)
 		{   temp = node->leftchild;
 			if(temp==NULL) temp = node->rightchild;
-			if(temp==NULL)//¬°¤l¸­
+			if(temp==NULL)//ç‚ºå­è‘‰
 			{   temp = node;
 				node = NULL;
 			}
-			else *node = *temp; //¬°³æ¤l¾ğ
+			else *node = *temp; //ç‚ºå–®å­æ¨¹
 			free(temp);
 		}
-		else//¬°Âù¤l¾ğ
+		else//ç‚ºé›™å­æ¨¹
 		{   temp = InorderSucc(node->rightchild);
 			node->data = temp->data;
 			node->rightchild = DeleteBSTree(node->rightchild,temp->data);
