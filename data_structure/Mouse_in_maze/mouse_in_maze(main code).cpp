@@ -10,18 +10,18 @@
 #pragma resource "*.dfm"
 
 #define maxsize 900
-struct offset//ÅÜ¶qªºstruct
+struct offset//è®Šé‡çš„struct
 {
 	int dx,dy;
 };
-struct imformation//¦s¤J¨¬¸ñªºstruct
+struct imformation//å­˜å…¥è¶³è·¡çš„struct
 {
 	int x,y;
 	int dir; //N0 NE1 E2 SE3 S4 SW5 W6 NW7
 };
 int maze[30][30];
 int mark[30][30];
-int m,n;//¦s¨ú°g®c¤j¤p
+int m,n;//å­˜å–è¿·å®®å¤§å°
 int top  = -1;
 int weight;
 int width;
@@ -30,7 +30,7 @@ int start_weight;
 int end_weight;
 int end_width;
 struct offset move[8];
-struct imformation stack[maxsize];//«Å§istack,¦s¤J¨¬¸ñªº°ïÅ|
+struct imformation stack[maxsize];//å®£å‘Šstack,å­˜å…¥è¶³è·¡çš„å †ç–Š
 void refresh_in(int j,int i);
 void refresh_out(int j,int i);
 void initial_offset();
@@ -50,7 +50,7 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
 {
 }
-void initial_offset()//ªì©l¤Æoffset
+void initial_offset()//åˆå§‹åŒ–offset
 {
 	move[0].dy = -1;
 	move[0].dx = 0;
@@ -86,7 +86,7 @@ struct imformation pop()
 	return stack[top--];
 }
 
-struct imformation die_road()//µL¸ô¥i¨«ªºª¬ºA
+struct imformation die_road()//ç„¡è·¯å¯èµ°çš„ç‹€æ…‹
 {
 	int d,u,v;
 	struct imformation step;
@@ -94,12 +94,12 @@ struct imformation die_road()//µL¸ô¥i¨«ªºª¬ºA
 	do
 	{
 		d = 0;
-		while(d<8)//±q¤K­Ó¤è¦V¥h¹Á¸Õ
+		while(d<8)//å¾å…«å€‹æ–¹å‘å»å˜—è©¦
 		{
 
 			u = step.y+move[d].dy;
 			v = step.x+move[d].dx;
-			if((!maze[u][v])&&(!mark[u][v]))//ª½¨ì¤@ª½§ä¨ì¦³¨ä¥L¥i¦æªº®æ¤l
+			if((!maze[u][v])&&(!mark[u][v]))//ç›´åˆ°ä¸€ç›´æ‰¾åˆ°æœ‰å…¶ä»–å¯è¡Œçš„æ ¼å­
 			{
 				top++;
 				return step;
@@ -107,7 +107,7 @@ struct imformation die_road()//µL¸ô¥i¨«ªºª¬ºA
 			else
 				d++;
 		}
-		if(d>=8)//µL¨ä¥L¥i¦æ®æ¤l
+		if(d>=8)//ç„¡å…¶ä»–å¯è¡Œæ ¼å­
 			step = pop();
 	}while(top>=0);
 	return step;   //only for back to start point
@@ -115,10 +115,10 @@ struct imformation die_road()//µL¸ô¥i¨«ªºª¬ºA
 
 void walking()
 {
-	struct imformation step;//²{¦b¦ì¸m!!!!
-	int u;//§Y±N­n«e©¹ªº¦C¡A¹ïÀ³¨ìy
-	int v;//§Y±N­n«e©¹ªº¦æ¡A¹ïÀ³¨ìx
-	int d;//­n¥hªº¤è¦V¨¤
+	struct imformation step;//ç¾åœ¨ä½ç½®!!!!
+	int u;//å³å°‡è¦å‰å¾€çš„åˆ—ï¼Œå°æ‡‰åˆ°y
+	int v;//å³å°‡è¦å‰å¾€çš„è¡Œï¼Œå°æ‡‰åˆ°x
+	int d;//è¦å»çš„æ–¹å‘è§’
 	String out;
 	for(int a=0;a<10;a++)
 		for(int b=0;b<10;b++)
@@ -129,18 +129,18 @@ void walking()
 	do
 	{
 		d = 0;
-		while(d<8)//±q¤K­Ó¤è¦V¥h¹Á¸Õ
+		while(d<8)//å¾å…«å€‹æ–¹å‘å»å˜—è©¦
 		{
 			u = step.y+move[d].dy;
 			v = step.x+move[d].dx;
-			if((!maze[u][v])&&(!mark[u][v]))  //§ä¨ìµÛ¸¨¤F ¡A¥[¤J·í¤UªºÂI
+			if((!maze[u][v])&&(!mark[u][v]))  //æ‰¾åˆ°è‘—è½äº† ï¼ŒåŠ å…¥ç•¶ä¸‹çš„é»
 			{
 				step.dir = d;
 				push(step);
 				mark[step.y][step.x] = 1;
 				step.y = u;
 				step.x = v;
-				if(u==end_weight&&v==end_width)//¦pªG¨ì¹F²×ÂI
+				if(u==end_weight&&v==end_width)//å¦‚æœåˆ°é”çµ‚é»
 				{
 					mark[step.y][step.x] = 1;
 					step.dir = 0;
@@ -154,28 +154,28 @@ void walking()
 						maze[stack[i].y][stack[i].x] = 3;//for memo correcting map
 					}
                     Form2->Memo1->Lines->Add("___________________________________correcting map___________________________________");
-					for (int i=0;i<m;i++)//¦L¥X¥¿½T¸ô®|3¥Nªí¥¿½T¸ô®|
+					for (int i=0;i<m;i++)//å°å‡ºæ­£ç¢ºè·¯å¾‘3ä»£è¡¨æ­£ç¢ºè·¯å¾‘
 					{
 						out = "";
 						for (int j=0; j<n; j++)
 							out += "  "+IntToStr(maze[i][j]);
 						Form2->Memo1->Lines->Add(out);
 					}
-					top = -1;//°±¤î°j°é
+					top = -1;//åœæ­¢è¿´åœˆ
 				}
 				break;
 			}
 			else
 				d++;
 		}
-		if(d==8)//µo²{¨S¦³¸ô¥i¥H¨«ªº®É­Ô
+		if(d==8)//ç™¼ç¾æ²’æœ‰è·¯å¯ä»¥èµ°çš„æ™‚å€™
 		{
 
-			mark[step.y][step.x] = 1;//¼Ğ°O·í¤U¸ÓÂI¬°¨«¹L
-			step = die_road(); //¶i¦æ°h¦^°Ê§@
+			mark[step.y][step.x] = 1;//æ¨™è¨˜ç•¶ä¸‹è©²é»ç‚ºèµ°é
+			step = die_road(); //é€²è¡Œé€€å›å‹•ä½œ
 		}
 	}while(top>=0);
-	if(mark[end_weight][end_width]==0)//§PÂ_¬O¦]¬°¨S¸ô¨«©Ò¥H¸õ¥X¨ÓÁÙ¬O¦]¬°±q²×ÂI¦^¨Ó¤F©Ò¥H¸õ¥X¨Ó
+	if(mark[end_weight][end_width]==0)//åˆ¤æ–·æ˜¯å› ç‚ºæ²’è·¯èµ°æ‰€ä»¥è·³å‡ºä¾†é‚„æ˜¯å› ç‚ºå¾çµ‚é»å›ä¾†äº†æ‰€ä»¥è·³å‡ºä¾†
 		Form2->Memo1->Lines->Add("NO DESTINATION!");
 }
 
@@ -236,18 +236,18 @@ void loading()
 		Form2->Memo1->Lines->Add("Nothing happens.");
 }
 
-void refresh_in(int j,int i)//¨«¹L§ïÅÜÃC¦â
+void refresh_in(int j,int i)//èµ°éæ”¹è®Šé¡è‰²
 {
 	grid_colordeal();
-	Sleep(Form2->TrackBar1->Position);//±±¨î³t«×
+	Sleep(Form2->TrackBar1->Position);//æ§åˆ¶é€Ÿåº¦
 	Form2->StringGrid1->Cells[j][i] = 3;
 	Form2->StringGrid1->Refresh();
 }
 
-void refresh_out(int j,int i)//°h¦^ÅÜ¦^­ì¥»ªºÃC¦â
+void refresh_out(int j,int i)//é€€å›è®Šå›åŸæœ¬çš„é¡è‰²
 {
 	grid_colordeal();
-	Sleep(Form2->TrackBar1->Position);//±±¨î³t«×
+	Sleep(Form2->TrackBar1->Position);//æ§åˆ¶é€Ÿåº¦
 	Form2->StringGrid1->Cells[j][i] = 0;
 	Form2->StringGrid1->Refresh();
 }
@@ -255,7 +255,7 @@ void refresh_out(int j,int i)//°h¦^ÅÜ¦^­ì¥»ªºÃC¦â
 void refresh_final(int j,int i)
 {
 	 grid_colordeal();
-	Sleep(Form2->TrackBar1->Position);//±±¨î³t«×
+	Sleep(Form2->TrackBar1->Position);//æ§åˆ¶é€Ÿåº¦
 	Form2->StringGrid1->Cells[j][i] = 4;
 	Form2->StringGrid1->Refresh();
 }
@@ -304,7 +304,7 @@ void __fastcall TForm2::Button2Click(TObject *Sender)        //walking
     top = -1;
 	for(int i=0;i<m;i++)
 		for(int j=0;j<n;j++)
-			mark[i][j] = 0;//ªì©l¤Æ¤w¨«¹L¨¬¸ñ¦a¹Ï
+			mark[i][j] = 0;//åˆå§‹åŒ–å·²èµ°éè¶³è·¡åœ°åœ–
 	initial_offset();
 	walking();
 }
@@ -347,7 +347,7 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 		maze[i][width-1] = 2;
 	}
 
-	for(i=0;i<number;i++)//²£¥ÍÀH¾÷ªº³òÀğ
+	for(i=0;i<number;i++)//ç”¢ç”Ÿéš¨æ©Ÿçš„åœç‰†
 	{
 		xx = rand()%(width-2)+1;
 		yy = rand()%(weight-2)+1;
@@ -374,7 +374,7 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 		for (j=0; j<width; j++)
 			Form2->StringGrid1->Cells[j][i] = maze[i][j];
     String out;
-    for (int i=0;i<m;i++)//¦L¥X¥¿½T¸ô®|3¥Nªí¥¿½T¸ô®|
+    for (int i=0;i<m;i++)//å°å‡ºæ­£ç¢ºè·¯å¾‘3ä»£è¡¨æ­£ç¢ºè·¯å¾‘
 	{
 		out = "";
 		for (int j=0; j<n; j++)
