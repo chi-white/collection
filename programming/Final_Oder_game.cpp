@@ -81,7 +81,7 @@ chatroom
 --------------------------------------------*/
 void chatroommain(customer members[],int uid);
 /*------------------------------------------
-§ï±K½X
+æ”¹å¯†ç¢¼
 --------------------------------------------*/
 int xpassword(customer m[],int uid);
 
@@ -108,7 +108,7 @@ int main()
 		}
 		if(mno==on)
 		{
-			cout<<"­q³æ¤w¥þ³¡³B²z§¹¦¨"<<endl;
+			cout<<"è¨‚å–®å·²å…¨éƒ¨è™•ç†å®Œæˆ"<<endl;
 			cout<<endl<<endl<< "Press any key to continue~~";
 			anykey(); 
 		}
@@ -155,7 +155,7 @@ int main()
 				break;
 		}
 		/*system("cls");
-		cout << "¿ï¶µ" << choice << endl;
+		cout << "é¸é …" << choice << endl;
 		cout << "Press any key to continue~~";
 		anykey();*/
 	}while(choice!=0);
@@ -166,7 +166,7 @@ int main()
 void PrintUI(int choice,int uid,customer members[])
 {
 	system("cls");
-	cout<<"³o¬O±z²Ä"<<members[uid].loginno<<"¦¸µn¤J¨t²Î"<<endl; 
+	cout<<"é€™æ˜¯æ‚¨ç¬¬"<<members[uid].loginno<<"æ¬¡ç™»å…¥ç³»çµ±"<<endl; 
 	char left[7],right[7];
 	int i;
 	for(i=0;i<7;i++)
@@ -177,12 +177,12 @@ void PrintUI(int choice,int uid,customer members[])
 	left[choice]='[';
 	right[choice]=']';
 	cout << "                                  "<< left[1] << "1" << right[1] << " Order" << endl;
-	cout << "                                  "<< left[2] << "2" << right[2] << " ¬d­q³æ" << endl;
-	cout << "                                  "<< left[3] << "3" << right[3] << " ­×§ï·|­û¸ê®Æ" << endl;
-	cout << "                                  "<< left[4] << "4" << right[4] << " ²á¤Ñ«Ç" << endl;
-	cout << "                                  "<< left[5] << "5" << right[5] << " ¼Æ¿W¹CÀ¸" << endl;
-	cout << "                                  "<< left[6] << "6" << right[6] << " ²q¼Æ¦r" << endl;
-	cout << "                                  "<< left[0] << "0" << right[0] << " Â÷¶}¨t²Î" << endl;
+	cout << "                                  "<< left[2] << "2" << right[2] << " æŸ¥è¨‚å–®" << endl;
+	cout << "                                  "<< left[3] << "3" << right[3] << " ä¿®æ”¹æœƒå“¡è³‡æ–™" << endl;
+	cout << "                                  "<< left[4] << "4" << right[4] << " èŠå¤©å®¤" << endl;
+	cout << "                                  "<< left[5] << "5" << right[5] << " æ•¸ç¨éŠæˆ²" << endl;
+	cout << "                                  "<< left[6] << "6" << right[6] << " çŒœæ•¸å­—" << endl;
+	cout << "                                  "<< left[0] << "0" << right[0] << " é›¢é–‹ç³»çµ±" << endl;
 }
 
 int MainUI(int choice,int uid,customer members[])
@@ -214,7 +214,7 @@ void sudokumain(customer members[],int uid)
 {
 	int Q[9][9],A[9][9],A2[9][9];
 	int correctness,success,fail;
-	cout<<"±z¤w¸g¸ÑÃD¹ï¹L"<<members[uid].sudokuwin<<"¦¸©M¿ù¹L"<<members[uid].sudokulose<<"¦¸Åo"<<endl; 
+	cout<<"æ‚¨å·²ç¶“è§£é¡Œå°éŽ"<<members[uid].sudokuwin<<"æ¬¡å’ŒéŒ¯éŽ"<<members[uid].sudokulose<<"æ¬¡å›‰"<<endl; 
 	anykey();
 	sudokuread(Q);
 	sudokuPlay(Q,A); 
@@ -414,14 +414,14 @@ void XAXBMain(customer members[],int uid)
 	int i,AB1,AB2;
 	int round=0;
 	system("cls");
-	cout<<"±z¤w¸gÄ¹¹L"<<members[uid].XAXBwin<<"¦¸©M¿é¹L"<<members[uid].XAXBlose<<"¦¸Åo"<<endl; 
-	cout<<"½Ð¿é¤J§AªºÃD¥Ø"<<endl;
-	cin>>human_ans; //¤HÃþµª®× 
-		cout<<"¶}©l²qÅo"<<endl;
+	cout<<"æ‚¨å·²ç¶“è´éŽ"<<members[uid].XAXBwin<<"æ¬¡å’Œè¼¸éŽ"<<members[uid].XAXBlose<<"æ¬¡å›‰"<<endl; 
+	cout<<"è«‹è¼¸å…¥ä½ çš„é¡Œç›®"<<endl;
+	cin>>human_ans; //äººé¡žç­”æ¡ˆ 
+		cout<<"é–‹å§‹çŒœå›‰"<<endl;
 	do
 	{
 		ans = rand()%10000;
-	}while(XAXBcheck(ans)==0);//¹q¸£µª®× 
+	}while(XAXBcheck(ans)==0);//é›»è…¦ç­”æ¡ˆ 
 	
 	for(i=0;i<10000;i++)
 	{
@@ -429,20 +429,20 @@ void XAXBMain(customer members[],int uid)
 			P[i] = 1;
 		else
 			P[i] = 0;
-	}				//¹q¸£ÀË¬dµª®× 
+	}				//é›»è…¦æª¢æŸ¥ç­”æ¡ˆ 
 	do
 	{
 		for(i=0;i<10000;i++)
 			if(P[i]==1)
 				break;
-		com_guess = i;//¹q¸£°_©lµª®× 
-		cout<<"½Ð¿é¤J§Aªºµª®×"<<endl; 
+		com_guess = i;//é›»è…¦èµ·å§‹ç­”æ¡ˆ 
+		cout<<"è«‹è¼¸å…¥ä½ çš„ç­”æ¡ˆ"<<endl; 
 		cin>>guess;
 		AB = XAXB(guess,ans); 
-		cout << AB/10 << "A" << AB%10 << "B" << endl;//¤H²qªºµª®× 
+		cout << AB/10 << "A" << AB%10 << "B" << endl;//äººçŒœçš„ç­”æ¡ˆ 
 		cout << "computer guess:" << com_guess <<endl;
 		AB1 = XAXB(com_guess,human_ans);
-		cout << AB1/10 << "A" << AB1%10 << "B" << endl;//¹q¸£ªºµª®× 
+		cout << AB1/10 << "A" << AB1%10 << "B" << endl;//é›»è…¦çš„ç­”æ¡ˆ 
 		for(i=0;i<10000;i++)
 		{
 			if(P[i]==1)
@@ -456,16 +456,16 @@ void XAXBMain(customer members[],int uid)
 	}while(AB1!=40&&AB!=40);
 	if(AB1==40)
 	{
-		cout<<"¹q¸£¦b"<<round<<"¦^¦XÄ¹¤F"<<endl;
+		cout<<"é›»è…¦åœ¨"<<round<<"å›žåˆè´äº†"<<endl;
 		members[uid].XAXBlose++;
 	}
 	if(AB==40)
 	{
-		cout<<"¤HÃþ¦b"<<round<<"¦^¦XÄ¹¤F"<<endl;
+		cout<<"äººé¡žåœ¨"<<round<<"å›žåˆè´äº†"<<endl;
 		members[uid].XAXBwin++;
 	}
-	cout<<"¹q¸£µª®×¬O:"<<ans<<endl;
-	cout << "ÂI¥ô·NÁäÄ~Äò¨ä¥L¦æ¬°";
+	cout<<"é›»è…¦ç­”æ¡ˆæ˜¯:"<<ans<<endl;
+	cout << "é»žä»»æ„éµç¹¼çºŒå…¶ä»–è¡Œç‚º";
 	anykey();
 }
 
@@ -552,55 +552,55 @@ void OrderMain(int uid,order orderlist[])
 		switch(orderlist[*pon].meal)
 		{
 			case 1:
-				cout<<"³Á­»³½"<<endl;
+				cout<<"éº¥é¦™é­š"<<endl;
 				break;
 			case 2:
-				cout<<"¤j³Á§J"<<endl;
+				cout<<"å¤§éº¥å…‹"<<endl;
 				break;
 			case 3:
-				cout<<"Âù¼h¤û¦×°_¥q³ù"<<endl;
+				cout<<"é›™å±¤ç‰›è‚‰èµ·å¸å ¡"<<endl;
 				break;
 			case 4:
-				cout<<"³Á¯ÜÂû"<<endl;
+				cout<<"éº¥è„†é›ž"<<endl;
 				break;
 			case 5:
-				cout<<"Âû¶ô"<<endl;
+				cout<<"é›žå¡Š"<<endl;
 				break;
 			case 0:
-				cout<<"Âû»L³ù"<<endl;
+				cout<<"é›žè…¿å ¡"<<endl;
 				break;
 		}
 			switch(orderlist[*pon].drink)
 		{
 			case 1:
-				cout<<"¥i¼Ö"<<endl;
+				cout<<"å¯æ¨‚"<<endl;
 				break;
 			case 2:
-				cout<<"ºñ¯ù"<<endl;
+				cout<<"ç¶ èŒ¶"<<endl;
 				break;
 			case 3:
-				cout<<"ÂfÂc¬õ¯ù"<<endl;
+				cout<<"æª¸æª¬ç´…èŒ¶"<<endl;
 				break;
 			case 4:
-				cout<<"¥¤©õ"<<endl;
+				cout<<"å¥¶æ˜”"<<endl;
 				break;
 			case 5:
-				cout<<"¥É¦Ì¿@´ö"<<endl;
+				cout<<"çŽ‰ç±³æ¿ƒæ¹¯"<<endl;
 				break;
 			case 0:
-				cout<<"¤û¥¤"<<endl;
+				cout<<"ç‰›å¥¶"<<endl;
 				break;
 		}
 			switch(orderlist[*pon].drinksize)
 		{
 			case 1:
-				cout<<"¤¤ªM"<<endl;
+				cout<<"ä¸­æ¯"<<endl;
 				break;
 			case 2:
-				cout<<"¤jªM"<<endl;
+				cout<<"å¤§æ¯"<<endl;
 				break;
 			case 0:
-				cout<<"¯S¤jªM"<<endl;
+				cout<<"ç‰¹å¤§æ¯"<<endl;
 				break;
 		}
 		cout<<"Pause ENTER if you ensure your meal"<<endl; 
@@ -664,13 +664,13 @@ void mealPrintUI(int choice)
 	right[choice]=']';
 	cout << endl << endl << endl;
 	cout << endl << endl ;
-	cout << "                 "<<"½Ð°Ý¤µ¤Ñ·Q¦Y¤°»ò©O??" << endl;	
-	cout << "                 "<< left[1] << "³Á­»³½"<< right[1] << endl;
-	cout << "                 "<< left[2] << " ¤j³Á§J"  << right[2] <<  endl;
-	cout << "                 "<< left[3] << " Âù¼h¤û¦×°_¥q³ù" << right[3]   << endl;
-	cout << "                 "<< left[4] <<" ³Á¯ÜÂû"<< right[4] <<  endl;
-	cout << "                 "<< left[5] << " Âû¶ô" << right[5]   << endl;
-	cout << "                 "<< left[0] << " Âû»L³ù"<< right[0] <<   endl;
+	cout << "                 "<<"è«‹å•ä»Šå¤©æƒ³åƒä»€éº¼å‘¢??" << endl;	
+	cout << "                 "<< left[1] << "éº¥é¦™é­š"<< right[1] << endl;
+	cout << "                 "<< left[2] << " å¤§éº¥å…‹"  << right[2] <<  endl;
+	cout << "                 "<< left[3] << " é›™å±¤ç‰›è‚‰èµ·å¸å ¡" << right[3]   << endl;
+	cout << "                 "<< left[4] <<" éº¥è„†é›ž"<< right[4] <<  endl;
+	cout << "                 "<< left[5] << " é›žå¡Š" << right[5]   << endl;
+	cout << "                 "<< left[0] << " é›žè…¿å ¡"<< right[0] <<   endl;
 }
 
 int orderdrinkUI(int choice)
@@ -712,13 +712,13 @@ void drinkPrintUI(int choice)
 	right[choice]=']';
 	cout << endl << endl << endl;
 	cout << endl << endl ;
-	cout << "                 "<<"¨º­n·f°t¤°»ò¶¼®Æ©O??" << endl;
-	cout << "                 "<< left[1] << " ¥i¼Ö" << right[1]   << endl;
-	cout << "                 "<< left[2] << " ºñ¯ù" << right[2]   << endl;
-	cout << "                 "<< left[3] << " ÂfÂc¬õ¯ù"<< right[3]   << endl;
-	cout << "                 "<< left[4] << " ¥¤©õ"<< right[4]   << endl;
-	cout << "                 "<< left[5] << " ¥É¦Ì¿@´ö" << right[5]   << endl;
-	cout << "                 "<< left[0] << " ¤û¥¤" << right[0]   << endl;
+	cout << "                 "<<"é‚£è¦æ­é…ä»€éº¼é£²æ–™å‘¢??" << endl;
+	cout << "                 "<< left[1] << " å¯æ¨‚" << right[1]   << endl;
+	cout << "                 "<< left[2] << " ç¶ èŒ¶" << right[2]   << endl;
+	cout << "                 "<< left[3] << " æª¸æª¬ç´…èŒ¶"<< right[3]   << endl;
+	cout << "                 "<< left[4] << " å¥¶æ˜”"<< right[4]   << endl;
+	cout << "                 "<< left[5] << " çŽ‰ç±³æ¿ƒæ¹¯" << right[5]   << endl;
+	cout << "                 "<< left[0] << " ç‰›å¥¶" << right[0]   << endl;
 }
 
 int orderdrinksizeUI(int choice)
@@ -760,10 +760,10 @@ void drinksizePrintUI(int choice)
 	right[choice]=']';
 	cout << endl << endl << endl;
 	cout << endl << endl ;
-	cout << "                 "<<"¶¼®Æªº¤j¤p¬O??" << endl;
-	cout << "                 "<< left[1] << " ¤¤ªM"  << right[1]  << endl;
-	cout << "                 "<< left[2] << " ¤jªM" << right[2]  << endl;
-	cout << "                 "<< left[0] << " ¯S¤jªM" << right[0]   << endl;
+	cout << "                 "<<"é£²æ–™çš„å¤§å°æ˜¯??" << endl;
+	cout << "                 "<< left[1] << " ä¸­æ¯"  << right[1]  << endl;
+	cout << "                 "<< left[2] << " å¤§æ¯" << right[2]  << endl;
+	cout << "                 "<< left[0] << " ç‰¹å¤§æ¯" << right[0]   << endl;
 }
 
 void OrderView(int uid,order o[]) 
@@ -778,55 +778,55 @@ void OrderView(int uid,order o[])
 			switch(o[i].meal)
 			{
 				case 1:
-					cout<< "³Á­»³½"<<endl;
+					cout<< "éº¥é¦™é­š"<<endl;
 					break;
 				case 2:
-					cout<<"¤j³Á§J"<<endl;
+					cout<<"å¤§éº¥å…‹"<<endl;
 					break;
 				case 3:
-					cout<<"Âù¼h¤û¦×°_¥q³ù"<<endl;
+					cout<<"é›™å±¤ç‰›è‚‰èµ·å¸å ¡"<<endl;
 					break;
 				case 4:
-					cout<<"³Á¯ÜÂû"<<endl;
+					cout<<"éº¥è„†é›ž"<<endl;
 					break;
 				case 5:
-					cout<<"Âû¶ô"<<endl;
+					cout<<"é›žå¡Š"<<endl;
 					break;
 				case 0:
-					cout<<"Âû»L³ù"<<endl;
+					cout<<"é›žè…¿å ¡"<<endl;
 					break;
 			}
 			switch(o[i].drink)
 			{
 				case 1:
-					cout<<"¥i¼Ö"<<endl;
+					cout<<"å¯æ¨‚"<<endl;
 					break;
 				case 2:
-					cout<<"ºñ¯ù"<<endl;
+					cout<<"ç¶ èŒ¶"<<endl;
 					break;
 				case 3:
-					cout<<"ÂfÂc¬õ¯ù"<<endl;
+					cout<<"æª¸æª¬ç´…èŒ¶"<<endl;
 					break;
 				case 4:
-					cout<<"¥¤©õ"<<endl;
+					cout<<"å¥¶æ˜”"<<endl;
 					break;
 				case 5:
-					cout<<"¥É¦Ì¿@´ö"<<endl;
+					cout<<"çŽ‰ç±³æ¿ƒæ¹¯"<<endl;
 					break;
 				case 0:
-					cout<<"¤û¥¤"<<endl;
+					cout<<"ç‰›å¥¶"<<endl;
 					break;
 			}
 			switch(o[i].drinksize)
 			{
 				case 1:
-					cout<<"¤¤ªM"<<endl;
+					cout<<"ä¸­æ¯"<<endl;
 					break;
 				case 2:
-					cout<<"¤jªM"<<endl;
+					cout<<"å¤§æ¯"<<endl;
 					break;
 				case 0:
-					cout<<"¯S¤jªM"<<endl;
+					cout<<"ç‰¹å¤§æ¯"<<endl;
 					break;
 			}
 			cout << endl;
@@ -895,7 +895,7 @@ void chatroommain(customer members[],int uid)
 		fout.open("msg.txt",ios::app);
 		fout << members[uid].name<<" :" << input << endl;
 		fout.close();
-		cout<<"­Y·QÂ÷¶}½Ð«öQ"<<endl;
+		cout<<"è‹¥æƒ³é›¢é–‹è«‹æŒ‰Q"<<endl;
 		c=getch();
 	}while(c!=113);	
 }
@@ -913,16 +913,16 @@ int Login(customer m[],int* pmn)
 	char account[17];
 	char password[11];
 	char password2[11];
-	char display[100]="±b¸¹: ";
+	char display[100]="å¸³è™Ÿ: ";
 	int id=-1,i;
 	do
 	{
-		strcpy(display,"­Y»Ý­nµù¥U·s±b¸¹,½Ð¿é¤Jregister\n");
-		strcat(display,"±b¸¹: ");
+		strcpy(display,"è‹¥éœ€è¦è¨»å†Šæ–°å¸³è™Ÿ,è«‹è¼¸å…¥register\n");
+		strcat(display,"å¸³è™Ÿ: ");
 		inputAccount(display,account);
 		if(strcmp(account,"register")==0)
 		{
-			strcpy(display,"½Ð¿é¤J·s±b¸¹: ");
+			strcpy(display,"è«‹è¼¸å…¥æ–°å¸³è™Ÿ: ");
 			inputAccount(display,account);
 			for(i=0;i<*pmn;i++)
 			{
@@ -933,16 +933,16 @@ int Login(customer m[],int* pmn)
 			{	
 				strcat(display,account);
 				strcat(display,"\n");
-				strcat(display,"½Ð¿é¤J±K½X: ");
+				strcat(display,"è«‹è¼¸å…¥å¯†ç¢¼: ");
 				inputPassword(display,password);
-				strcpy(display,"½Ð¿é¤J·s±b¸¹: ");
+				strcpy(display,"è«‹è¼¸å…¥æ–°å¸³è™Ÿ: ");
 				strcat(display,account);
 				strcat(display,"\n");
-				strcat(display,"½Ð­«·s¿é¤J±K½X: ");
+				strcat(display,"è«‹é‡æ–°è¼¸å…¥å¯†ç¢¼: ");
 				inputPassword(display,password2);
 				if(strcmp(password,password2)==0)
 				{
-					cout << endl << "©m¦W:";
+					cout << endl << "å§“å:";
 					cin.getline(name,20);
 					strcpy(m[*pmn].name,name);
 					strcpy(m[*pmn].account,account);
@@ -960,7 +960,7 @@ int Login(customer m[],int* pmn)
 			}
 			else
 			{
-				cout << "¦¹±b¸¹¤w³Q¨Ï¥Î" << endl;
+				cout << "æ­¤å¸³è™Ÿå·²è¢«ä½¿ç”¨" << endl;
 				cout << "Press any key to continue~~";
 				anykey(); 
 			}
@@ -968,7 +968,7 @@ int Login(customer m[],int* pmn)
 		}
 		strcat(display,account);
 		strcat(display,"\n");
-		strcat(display,"±K½X: ");
+		strcat(display,"å¯†ç¢¼: ");
 		inputPassword(display,password);
 		for(i=0;i<*pmn;i++)
 		{
@@ -1125,23 +1125,23 @@ int xpassword(customer m[],int uid)
 	char display3[100]="";
 	char display4[100]="";
 
-	strcat(display,"½Ð¿é¤J±K½X¡G"); 
+	strcat(display,"è«‹è¼¸å…¥å¯†ç¢¼ï¼š"); 
 	inputPassword(display,password);
 	if(strcmp(m[uid].password,password)==0)
 	{
-		strcat(display2,"½Ð¦A¿é¤J±K½X¡G"); 
+		strcat(display2,"è«‹å†è¼¸å…¥å¯†ç¢¼ï¼š"); 
 		inputPassword(display2,password);
 		if(strcmp(m[uid].password,password)==0)
 		{
-			strcat(display3,"½Ð¿é¤J·s±K½X¡G");
+			strcat(display3,"è«‹è¼¸å…¥æ–°å¯†ç¢¼ï¼š");
 			inputPassword(display3,password2);
-			strcat(display4,"½Ð¦A¿é¤J·s±K½X¡G");
+			strcat(display4,"è«‹å†è¼¸å…¥æ–°å¯†ç¢¼ï¼š");
 			inputPassword(display4,password3);
 			if(strcmp(password2,password3)==0)
 			{
 				strcpy(m[uid].password,password3);
 				system("cls");
-				cout<<"±K½X¤w§ó·s§¹¦¨"<<endl;
+				cout<<"å¯†ç¢¼å·²æ›´æ–°å®Œæˆ"<<endl;
 				cout << "Press any key to continue~~";
 				anykey();
 				return 0;		 
@@ -1149,7 +1149,7 @@ int xpassword(customer m[],int uid)
 		}
 	}
 	system("cls");
-	cout<<"±K½X¤£¥¿½T"<<endl<<"±K½X§ó§ï¥¢±Ñ"<<endl<<endl; 
+	cout<<"å¯†ç¢¼ä¸æ­£ç¢º"<<endl<<"å¯†ç¢¼æ›´æ”¹å¤±æ•—"<<endl<<endl; 
 	cout << "Press any key to continue~~";
 	anykey();
 	return 1;
@@ -1174,7 +1174,7 @@ int MCcontrol(int mno,int on)
 				}
 				else
 				{
-					cout<<"­q³æ¤w¥þ³¡³B²z§¹¦¨"<<endl; 
+					cout<<"è¨‚å–®å·²å…¨éƒ¨è™•ç†å®Œæˆ"<<endl; 
 					return i;
 				}
 			}		
@@ -1182,7 +1182,7 @@ int MCcontrol(int mno,int on)
 			{
 				if(i>0)
 				{
-					cout<<"³o¬O²Ä¤@µ§­q³æ"<<endl;
+					cout<<"é€™æ˜¯ç¬¬ä¸€ç­†è¨‚å–®"<<endl;
 					i-=1;
 					return i;
 				}
@@ -1205,55 +1205,55 @@ void internalUI(order o[],int mno,int on)
 	switch(o[i].meal)
 	{
 		case 1:
-			cout<<"³Á­»³½"<<endl;
+			cout<<"éº¥é¦™é­š"<<endl;
 			break;
 		case 2:
-			cout<<"¤j³Á§J"<<endl;
+			cout<<"å¤§éº¥å…‹"<<endl;
 			break;
 		case 3:
-			cout<<"Âù¼h¤û¦×°_¥q³ù"<<endl;
+			cout<<"é›™å±¤ç‰›è‚‰èµ·å¸å ¡"<<endl;
 			break;
 		case 4:
-			cout<<"³Á¯ÜÂû"<<endl;
+			cout<<"éº¥è„†é›ž"<<endl;
 			break;
 		case 5:
-			cout<<"Âû¶ô"<<endl;
+			cout<<"é›žå¡Š"<<endl;
 			break;
 		case 0:
-			cout<<"Âû»L³ù"<<endl;
+			cout<<"é›žè…¿å ¡"<<endl;
 			break;
 	}
 	switch(o[i].drink)
 	{
 		case 1:
-			cout<<"¥i¼Ö"<<endl;
+			cout<<"å¯æ¨‚"<<endl;
 			break;
 		case 2:
-			cout<<"ºñ¯ù"<<endl;
+			cout<<"ç¶ èŒ¶"<<endl;
 			break;
 		case 3:
-			cout<<"ÂfÂc¬õ¯ù"<<endl;
+			cout<<"æª¸æª¬ç´…èŒ¶"<<endl;
 			break;
 		case 4:
-			cout<<"¥¤©õ"<<endl;
+			cout<<"å¥¶æ˜”"<<endl;
 			break;
 		case 5:
-			cout<<"¥É¦Ì¿@´ö"<<endl;
+			cout<<"çŽ‰ç±³æ¿ƒæ¹¯"<<endl;
 			break;
 		case 0:
-			cout<<"¤û¥¤"<<endl;
+			cout<<"ç‰›å¥¶"<<endl;
 			break;
 	}
 	switch(o[i].drinksize)
 	{
 		case 1:
-			cout<<"¤¤ªM"<<endl;
+			cout<<"ä¸­æ¯"<<endl;
 			break;
 		case 2:
-			cout<<"¤jªM"<<endl;
+			cout<<"å¤§æ¯"<<endl;
 			break;
 		case 0:
-			cout<<"¯S¤jªM"<<endl;
+			cout<<"ç‰¹å¤§æ¯"<<endl;
 			break;
 	}
 }
